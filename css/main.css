@@ -3,6 +3,6 @@ footer {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%, 0);
-    font-size: 12px;
+    font-size: 0.2em;
     text-align: center;
 }
