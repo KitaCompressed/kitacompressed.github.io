@@ -6,3 +6,10 @@ footer {
     font-size: 0.2em;
     text-align: center;
 }
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%, -50%);
+}
