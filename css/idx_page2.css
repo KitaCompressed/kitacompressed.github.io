@@ -35,6 +35,25 @@
     margin-top: 15vh;
 }
 
+/* 阶段编号样式 */
+.stage-number {
+    color: #ff6b35;
+    margin-right: 0.2em;
+}
+
+/* 第一阶段：#1 Design Works - 默认显示 */
+.design-works-horizontal.stage-1 {
+    opacity: 1;
+}
+
+/* 第二阶段：#2 CP Awards - 默认隐藏 */
+.design-works-horizontal.stage-2 {
+    opacity: 0;
+    position: absolute;
+    top: 15vh;
+    width: 100%;
+}
+
 .design-works-horizontal.shrink-fade {
     opacity: 0;
     transform: scale(0.3);
@@ -50,7 +69,7 @@
     line-height: 1;
     text-align: left;
     left: 10%;
-    top: 25vh; /* 从35vh上调到25vh */
+    top: 35vh; /* 从25vh下调到35vh */
     opacity: 0;
     transform: translateX(-50px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);

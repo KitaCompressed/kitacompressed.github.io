@@ -355,13 +355,67 @@
 /* Design Works 移动端样式调整 */
 @media (max-width: 768px) {
     /* 横排文字需要下调位置 */
-    .design-works-horizontal {
+    .design-works-horizontal,
+    .design-works-horizontal.stage-1,
+    .design-works-horizontal.stage-2 {
         margin-top: 25vh !important; /* 从15vh调整到25vh，下调位置 */
         font-size: clamp(2rem, 12vw, 4rem) !important; /* 响应式字体大小 */
+        text-align: center !important;
     }
     
     /* 调整容器的位置以配合横排文字的下调 */
     .design-works-container {
         align-items: flex-start !important;
+        top: 140vh; /* 移动端下调位置 */
+    }
+    
+    /* 阶段编号在移动端的样式 */
+    .stage-number {
+        font-size: 0.8em !important;
+        margin-right: 0.15em !important;
+    }
+    
+    .design-works-container.slide-up {
+        top: 60vh; /* 移动端上移后的位置 */
+    }
+    
+    .design-works-horizontal {
+        font-size: 12vw; /* 移动端更大的字体 */
+        gap: 0.2em;
+    }
+    
+    /* 移动端的阶段编号 */
+    .stage-number {
+        font-size: 0.8em;
+        margin-right: 0.15em;
+    }
+    
+    /* 移动端第一阶段定位调整 */
+    .design-works-horizontal.stage-1 {
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    
+    /* 移动端第二阶段定位调整 */
+    .design-works-horizontal.stage-2 {
+        left: 100%;
+        transform: translateX(-100%) translateY(-50%);
+    }
+    
+    /* 移动端移动状态调整 */
+    .design-works-horizontal.stage-1.moving-left {
+        left: -10%; /* 移动端左移更彻底 */
+        transform: translateX(0) translateY(-50%);
+    }
+    
+    /* 移动端第二阶段激活状态 */
+    .design-works-horizontal.stage-2.active {
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    
+    .design-works-vertical {
+        margin-top: 5vh; /* 移动端竖排文字上调 */
+        font-size: 12vw;
     }
 }
