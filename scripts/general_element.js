@@ -10,11 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const title = document.querySelector('.hero-title');
     if (title) {
         title.classList.add('title-animate');
-        // 动画完成后移除no-scroll，并重新启用transition
+        // 动画完成后移除no-scroll
         setTimeout(() => {
             document.body.classList.remove('no-scroll');
-            // 移除动画类，恢复transition
-            title.classList.remove('title-animate');
         }, 1500); // 与CSS动画时长匹配 (1.2s + 0.3s缓冲)
     } else {
         // 没有 hero-title，直接允许滚动

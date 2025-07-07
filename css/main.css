@@ -124,8 +124,8 @@ body {
     font-weight: 900;
     user-select: none;
     z-index: 10;
-    opacity: 0;
-    transform: translateY(60px);
+    opacity: 1; /* 改为1，避免移除动画类后消失 */
+    transform: translateY(0); /* 改为0，保持最终位置 */
     transition: transform 0.2s ease-out, opacity 0.2s ease-out;
     /* 为滚动动画添加平滑过渡 */
     will-change: transform, opacity;
@@ -134,6 +134,9 @@ body {
 .hero-title.title-animate {
     animation: heroEnter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     transition: none; /* 动画期间禁用transition */
+    /* 动画开始时的初始状态 */
+    opacity: 0;
+    transform: translateY(60px);
 }
 
 /* 添加微妙的阴影和发光效果，增强进场动画的视觉冲击力 */
