@@ -1,0 +1,367 @@
+/* 移动端样式重置和强制规则 */
+@media (max-width: 768px) {
+    /* 强制重置可能冲突的样式 */
+    html body * {
+        box-sizing: border-box !important;
+    }
+    
+    /* 强制重置导航栏定位 - 最高优先级 */
+    html body .main-header,
+    html body.index-page .main-header,
+    html body:not(.index-page) .main-header,
+    html body .main-header.main-header,
+    .main-header {
+        position: sticky !important;
+        top: 10px !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        min-width: auto !important;
+        max-width: none !important;
+        transform: none !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        z-index: 1000 !important;
+        float: none !important;
+        clear: both !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* 移动端通用样式（提取自main.css并修正居中） */
+
+@media (max-width: 768px) {
+    /* 重置任何可能干扰的通用类 */
+    html body .centered {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+    }
+    
+    /* Footer */
+    .site-footer {
+        padding: 1rem 3% 1rem 3%;
+        bottom: 2vh;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        min-height: auto;
+    }
+    .footer-left {
+        width: 100%;
+        max-width: none;
+        min-width: auto;
+    }
+    .footer-title {
+        font-size: clamp(2.2rem, 12vw, 4.5rem);
+        white-space: normal;
+    }
+    .footer-right {
+        align-self: flex-end;
+        margin-left: 0;
+        min-width: auto;
+    }
+    /* 导航栏样式 */
+    html body .main-header.sticky-active {
+        padding: 0.3rem 1rem !important;
+        border-radius: 1.5rem !important;
+        background: rgba(15, 15, 15, 0.3) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    }
+    html body .main-nav {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    html body .nav-ul {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.2rem !important;
+        padding: 0.2rem 0 !important;
+        margin: 0 auto !important;
+        list-style: none !important;
+        display: flex !important;
+        width: auto !important;
+    }
+    html body .nav-ul li {
+        margin: 0 !important;
+    }
+    html body .nav-ul a {
+        padding: 0.3rem 0.8rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 1.5rem !important;
+        display: block !important;
+        text-align: center !important;
+    }
+    /* Hero Title 强制居中 - 仅首页 */
+    html body.index-page .hero-title {
+        position: absolute !important;
+        top: 35% !important;
+        left: 50% !important;
+        right: auto !important;
+        margin: 0 auto !important;
+        width: 95vw !important;
+        max-width: none !important;
+        text-align: center !important;
+        display: block !important;
+        transform: translateX(-50%) translateY(-50%) translateY(60px) !important;
+        z-index: 10 !important;
+        overflow: visible !important;
+        word-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    html body.index-page .hero-title.title-animate {
+        transform: translateX(-50%) translateY(-50%) !important;
+    }
+    /* 非首页标题保持原来的位置 */
+    html body:not(.index-page) .hero-title {
+        position: absolute !important;
+        top: 15vh !important;
+        left: 8vw !important;
+        right: 8vw !important;
+        margin: 0 !important;
+        width: auto !important;
+        text-align: left !important;
+        display: block !important;
+        transform: none !important;
+        z-index: 10 !important;
+    }
+    /* 首页标题样式 */
+    html body.index-page .title-line-1 {
+        font-size: clamp(2rem, 10vw, 5rem) !important;
+        margin-bottom: -0.05em !important;
+        text-align: center !important;
+        display: block !important;
+        line-height: 0.9 !important;
+        letter-spacing: -0.02em !important;
+    }
+    html body.index-page .title-line-2 {
+        font-size: clamp(1.6rem, 8vw, 4rem) !important;
+        text-align: center !important;
+        display: block !important;
+        line-height: 0.9 !important;
+        letter-spacing: -0.01em !important;
+    }
+    /* 非首页标题样式 */
+    html body:not(.index-page) .title-line-1 {
+        font-size: clamp(1.8rem, 8vw, 4rem) !important;
+        margin-bottom: -0.05em !important;
+        text-align: left !important;
+        display: block !important;
+        line-height: 0.9 !important;
+        letter-spacing: -0.02em !important;
+    }
+    html body:not(.index-page) .title-line-2 {
+        font-size: clamp(1.4rem, 6vw, 3rem) !important;
+        text-align: left !important;
+        display: block !important;
+        line-height: 0.9 !important;
+        letter-spacing: -0.01em !important;
+    }
+    html body .title-arrow {
+        margin-top: 1.5vh !important;
+        text-align: center !important;
+        display: block !important;
+    }
+    html body .arrow-icon {
+        width: clamp(24px, 5vw, 36px) !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* 480px断点导航栏覆盖 */
+    html body .main-header,
+    html body.index-page .main-header,
+    html body:not(.index-page) .main-header,
+    html body .main-header.main-header,
+    .main-header {
+        top: 5px !important;
+    }
+    html body .main-header.sticky-active {
+        padding: 0.2rem 0.8rem !important;
+        border-radius: 1.5rem !important;
+    }
+    html body .nav-ul {
+        gap: 0.1rem !important;
+        padding: 0.1rem 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    html body .nav-ul a {
+        padding: 0.2rem 0.6rem !important;
+        font-size: 0.8rem !important;
+        text-align: center !important;
+    }
+    html body.index-page .hero-title {
+        position: absolute !important;
+        top: 35% !important;
+        left: 50% !important;
+        right: auto !important;
+        margin: 0 auto !important;
+        width: 92vw !important;
+        text-align: center !important;
+        transform: translateX(-50%) translateY(-50%) !important;
+        display: block !important;
+    }
+    /* 非首页标题保持原来的位置 */
+    html body:not(.index-page) .hero-title {
+        position: absolute !important;
+        top: 12vh !important;
+        left: 5vw !important;
+        right: 5vw !important;
+        margin: 0 !important;
+        width: auto !important;
+        text-align: left !important;
+        transform: none !important;
+        display: block !important;
+    }
+    /* 首页标题样式 */
+    html body.index-page .title-line-1 {
+        font-size: clamp(1.6rem, 12vw, 4rem) !important;
+        letter-spacing: -0.02em !important;
+        text-align: center !important;
+        display: block !important;
+        line-height: 0.85 !important;
+    }
+    html body.index-page .title-line-2 {
+        font-size: clamp(1.3rem, 9vw, 3rem) !important;
+        letter-spacing: -0.01em !important;
+        text-align: center !important;
+        display: block !important;
+        line-height: 0.85 !important;
+    }
+    /* 非首页标题样式 */
+    html body:not(.index-page) .title-line-1 {
+        font-size: clamp(1.4rem, 10vw, 3.5rem) !important;
+        letter-spacing: -0.02em !important;
+        text-align: left !important;
+        display: block !important;
+        line-height: 0.85 !important;
+    }
+    html body:not(.index-page) .title-line-2 {
+        font-size: clamp(1.1rem, 7vw, 2.5rem) !important;
+        letter-spacing: -0.01em !important;
+        text-align: left !important;
+        display: block !important;
+        line-height: 0.85 !important;
+    }
+    html body .title-arrow {
+        margin-top: 1vh !important;
+        text-align: center !important;
+        display: block !important;
+    }
+    html body .arrow-icon {
+        width: clamp(20px, 6vw, 32px) !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+}
+
+@media (max-width: 320px) {
+    /* 320px断点导航栏覆盖 */
+    html body .main-header,
+    html body.index-page .main-header,
+    html body:not(.index-page) .main-header,
+    html body .main-header.main-header,
+    .main-header {
+        top: 5px !important;
+    }
+    html body .main-header.sticky-active {
+        padding: 0.15rem 0.6rem !important;
+        border-radius: 1.5rem !important;
+    }
+    html body .nav-ul a {
+        padding: 0.15rem 0.5rem !important;
+        font-size: 0.75rem !important;
+        text-align: center !important;
+    }
+    html body.index-page .hero-title {
+        position: absolute !important;
+        top: 35% !important;
+        left: 50% !important;
+        right: auto !important;
+        margin: 0 auto !important;
+        width: 94vw !important;
+        text-align: center !important;
+        transform: translateX(-50%) translateY(-50%) !important;
+        display: block !important;
+    }
+    /* 非首页标题保持原来的位置 */
+    html body:not(.index-page) .hero-title {
+        position: absolute !important;
+        top: 10vh !important;
+        left: 3vw !important;
+        right: 3vw !important;
+        margin: 0 !important;
+        width: auto !important;
+        text-align: left !important;
+        transform: none !important;
+        display: block !important;
+    }
+    /* 首页标题样式 */
+    html body.index-page .title-line-1 {
+        font-size: clamp(1.4rem, 13vw, 3.2rem) !important;
+        text-align: center !important;
+        display: block !important;
+        line-height: 0.8 !important;
+        letter-spacing: -0.01em !important;
+    }
+    html body.index-page .title-line-2 {
+        font-size: clamp(1.1rem, 10vw, 2.4rem) !important;
+        text-align: center !important;
+        display: block !important;
+        line-height: 0.8 !important;
+        letter-spacing: -0.005em !important;
+    }
+    /* 非首页标题样式 */
+    html body:not(.index-page) .title-line-1 {
+        font-size: clamp(1.2rem, 11vw, 2.8rem) !important;
+        text-align: left !important;
+        display: block !important;
+        line-height: 0.8 !important;
+        letter-spacing: -0.01em !important;
+    }
+    html body:not(.index-page) .title-line-2 {
+        font-size: clamp(1rem, 8vw, 2rem) !important;
+        text-align: left !important;
+        display: block !important;
+        line-height: 0.8 !important;
+        letter-spacing: -0.005em !important;
+    }
+    html body .title-arrow {
+        margin-top: 0.8vh !important;
+        text-align: center !important;
+        display: block !important;
+    }
+    html body .arrow-icon {
+        width: clamp(18px, 7vw, 28px) !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+}
+
+/* Design Works 移动端样式调整 */
+@media (max-width: 768px) {
+    /* 横排文字需要下调位置 */
+    .design-works-horizontal {
+        margin-top: 25vh !important; /* 从15vh调整到25vh，下调位置 */
+        font-size: clamp(2rem, 12vw, 4rem) !important; /* 响应式字体大小 */
+    }
+    
+    /* 调整容器的位置以配合横排文字的下调 */
+    .design-works-container {
+        align-items: flex-start !important;
+    }
+}

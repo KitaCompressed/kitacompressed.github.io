@@ -23,13 +23,189 @@
     font-style: normal;
 }
 
-footer {
+@font-face {
+    font-family: 'NovcentoWide';
+    src: url(../fonts/Novecento-wide-Light-2.ttf) format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NovcentoWide';
+    src: url(../fonts/Novecento-Wide-Normal-2.otf) format('opentype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'NovcentoWide';
+    src: url(../fonts/Novecento-Wide-Medium-2.otf) format('opentype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'NovcentoWide';
+    src: url(../fonts/Novecento-Wide-Bold-2.otf) format('opentype');
+    font-weight: 900;
+}
+
+html, body {
+    background: 
+        radial-gradient(ellipse at center, #1e1e1e 0%, #0a0a0a 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    /* 强制滚动条颜色 */
+    color-scheme: dark;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 12px;
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a !important;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #404040 !important;
+    border-radius: 6px;
+    border: 2px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555555 !important;
+}
+
+::-webkit-scrollbar-corner {
+    background: #1a1a1a !important;
+}
+
+/* Edge 和其他浏览器的额外兼容性 */
+body::-webkit-scrollbar {
+    width: 12px;
+    background: #1a1a1a !important;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1a1a1a !important;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #404040 !important;
+    border-radius: 6px;
+}
+
+/* Firefox 滚动条样式 */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #404040 #1a1a1a;
+}
+
+/* 强制覆盖任何默认滚动条样式 */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #404040 #1a1a1a;
+}
+
+body {
+    min-height: 200vh; /* 调整页面高度，为heyday风格提供合适的滚动空间 */
+    position: relative;
+}
+
+/* Hero Title - Heyday 风格极简大字号排版 */
+.hero-title {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.2em;
-    text-align: center;
+    top: 15vh;
+    left: 8vw;
+    right: 8vw;
+    color: #f8f6f2;
+    margin: 0;
+    line-height: 0.9;
+    font-family: 'Futura';
+    font-weight: 900;
+    user-select: none;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    /* 为滚动动画添加平滑过渡 */
+    will-change: transform, opacity;
+}
+
+.hero-title.title-animate {
+    animation: heroEnter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    transition: none; /* 动画期间禁用transition */
+}
+
+/* 添加微妙的阴影和发光效果，增强进场动画的视觉冲击力 */
+.hero-title.title-animate .title-line-1 {
+    text-shadow: 0 4px 20px rgba(248, 246, 242, 0.1);
+}
+
+.hero-title.title-animate .title-line-2 {
+    text-shadow: 0 4px 20px rgba(255, 107, 53, 0.2);
+}
+
+/* 添加整体容器的进场效果 */
+.hero-title::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(ellipse at center, rgba(248, 246, 242, 0.02) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 1.5s ease-out 0.8s;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hero-title.title-animate::before {
+    opacity: 1;
+}
+
+@keyframes heroEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title-line-1 {
+    font-size: clamp(4rem, 12vw, 14rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    margin-bottom: -0.1em;
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: lineEnter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s forwards;
+}
+
+.title-line-2 {
+    font-size: clamp(3rem, 9vw, 10.5rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: #e56b40;
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: lineEnter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+}
+
+@keyframes lineEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .centered {
@@ -40,12 +216,33 @@ footer {
 }
 
 .main-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* z-index: 1000; */
+    position: sticky;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    margin: 0 auto;
+    background: transparent;
+    transition: 
+        background 0.3s,
+        box-shadow 0.3s,
+        padding 0.3s,
+        border-radius 0.3s;
+    z-index: 1000;
 }
+
+.main-header.sticky-active {
+    background: rgba(15, 15, 15, 0.3);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 
+        0 8px 32px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.5rem 2.5rem;
+    border-radius: 2rem;
+}
+
 .main-nav {
     font-family: 'Futura';
     font-weight: 500;
@@ -63,14 +260,212 @@ footer {
 
 .nav-ul a {
     text-decoration: none;
-    color: #000;
-    background-color: azure;
+    color: #f8f6f2;
+    background-color: transparent;
     padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
+    transition: 
+        background-color 0.3s,
+        color 0.3s,
+        border-radius 0.3s;
+    border-radius: 2rem; /* 与导航栏外框一致 */
 }
 
 .nav-ul a:hover {
-    color: #000;
-    background-color:aliceblue;
+    color: #f8f6f2;
+    background-color: rgba(248, 246, 242, 0.1);
+    border-radius: 2rem; /* 保持圆角 */
 }
 
+.design-fade {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3vw;
+    color: #18191a;
+    opacity: 0;
+    pointer-events: none;
+    font-family: 'Futura';
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    transition: opacity 0.6s cubic-bezier(.4,0,.2,1);
+    z-index: 1;
+}
+.design-fade.visible {
+    opacity: 1;
+}
+
+body.no-scroll {
+    overflow: hidden;
+    scrollbar-gutter: stable;
+}
+html {
+    scrollbar-gutter: stable;
+}
+
+/* 网站结尾样式 */
+.site-footer {
+    position: absolute;
+    bottom: 3vh;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 5% 1rem 5%;
+    z-index: 4;
+    min-height: 80px;
+    box-sizing: border-box;
+    width: 100%;
+    border-top: 1px solid rgba(248, 246, 242, 0.3);
+}
+
+/* 首页的footer动画效果 */
+.index-page .site-footer {
+    transform: translateY(100%);
+    transition: transform 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease-out;
+    opacity: 0;
+}
+
+/* 其他页面的footer直接显示 */
+body:not(.index-page) .site-footer {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.site-footer.footer-visible {
+    transform: translateY(0); /* 显示状态 */
+    opacity: 1;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 60px; /* 确保内容区域有足够高度 */
+    position: relative; /* 添加相对定位 */
+}
+
+.footer-left {
+    flex: 0 0 auto; /* 不允许收缩，保护左侧内容 */
+    min-width: 200px; /* 最小宽度保护 */
+    max-width: 60%; /* 最大宽度限制，为右侧留空间 */
+    /* 额外防护 */
+    overflow: visible;
+    position: relative;
+}
+
+.footer-title {
+    font-family: 'Futura';
+    font-weight: 900;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    color: #f8f6f2;
+    margin: 0;
+    line-height: 1;
+    text-transform: none; /* 移除大写转换，保持原始大小写 */
+    letter-spacing: -0.02em;
+    white-space: nowrap; /* 防止换行 */
+    overflow: visible; /* 确保内容可见 */
+    /* 额外防护 */
+    display: block;
+    width: max-content;
+    min-width: max-content;
+}
+
+.footer-right {
+    flex: 0 0 auto; /* 不允许收缩 */
+    text-align: right;
+    margin-left: 2rem;
+    min-width: 120px; /* 为右侧内容预留最小空间 */
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.footer-counter {
+    font-family: 'Futura';
+    font-weight: 500;
+    font-size: 1rem;
+    color: #ff6b35;
+    letter-spacing: 0.1em;
+}
+
+.footer-studio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+}
+
+.studio-name,
+.studio-location {
+    font-family: 'Futura';
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #f8f6f2;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* 视频背景区域 */
+.hero-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+    filter: blur(3px); /* 减少模糊度 */
+    opacity: 0.05; /* 稍微增加可见度，配合简洁风格 */
+}
+
+/* 标题下方箭头样式 */
+.title-arrow {
+    display: block;
+    margin-top: 2vh;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: arrowEnter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+}
+
+.arrow-icon {
+    width: clamp(32px, 4vw, 48px);
+    height: auto;
+    filter: invert(1) brightness(0.9);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.arrow-icon:hover {
+    transform: translateY(3px);
+    opacity: 0.7;
+}
+
+@keyframes arrowEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 0.6;
+        transform: translateY(0);
+    }
+}

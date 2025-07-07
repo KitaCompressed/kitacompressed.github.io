@@ -1,0 +1,89 @@
+/* Design Works 动画区域样式 */
+.design-works-container {
+    position: absolute;
+    top: 120vh; /* 调整位置以配合新的hero title */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 3;
+    transition: top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.design-works-container.slide-up {
+    top: 50vh;
+}
+
+/* 横排文字样式 */
+.design-works-horizontal {
+    font-family: 'Futura';
+    font-weight: 900;
+    font-size: 8vw;
+    color: #f8f6f2;
+    line-height: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-top: 15vh;
+}
+
+.design-works-horizontal.shrink-fade {
+    opacity: 0;
+    transform: scale(0.3);
+}
+
+/* 竖排文字样式 */
+.design-works-vertical {
+    position: absolute;
+    font-family: 'Futura';
+    font-weight: 900;
+    font-size: 8vw;
+    color: #f8f6f2;
+    line-height: 1;
+    text-align: left;
+    left: 10%;
+    top: 25vh; /* 从35vh上调到25vh */
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.design-works-vertical.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.design-works-vertical .design-word {
+    display: block;
+    margin-bottom: 0.1em;
+    transform: translateX(-30px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-delay: 0.2s;
+}
+
+.design-works-vertical .works-word {
+    display: block;
+    transform: translateX(-30px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-delay: 0.4s;
+}
+
+.design-works-vertical.fade-in .design-word {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.design-works-vertical.fade-in .works-word {
+    transform: translateX(0);
+    opacity: 1;
+}

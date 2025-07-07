@@ -1,24 +1,199 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
-    <title>申必网站</title>
+    <title>KitaCompressed</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #fafbfa;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            min-height: 100vh;
+        }
+        .main-header {
+            width: 100vw;
+            border-bottom: 1px solid #eee;
+            background: transparent;
+        }
+        .nav-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100vw;
+            padding: 12px 32px 0 32px;
+            font-size: 0.95em;
+        }
+        .nav-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2em;
+            min-width: 120px;
+        }
+        .nav-col a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            padding: 2px 0;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-col a:hover {
+            color: #666;
+        }
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.1em;
+            letter-spacing: 0.1em;
+        }
+        .main-content {
+            position: relative;
+            width: 100vw;
+            height: calc(100vh - 60px);
+            min-height: 600px;
+        }
+        .center-content {
+            position: absolute;
+            top: 4vw;
+            left: 7vw;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .subtitle {
+            color: #222;
+            font-size: 1.1em;
+            margin-bottom: 1.5em;
+            letter-spacing: 0.05em;
+            font-family: 'Futura', 'Helvetica', Arial, sans-serif;
+        }
+        .desc {
+            color: #222;
+            font-size: 1.1em;
+            margin-bottom: 2em;
+            font-family: 'Futura', 'Helvetica', Arial, sans-serif;
+        }
+        .big-title {
+            position: absolute;
+            left: 7vw;
+            bottom: 4vw;
+            font-size: 8vw;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            color: #222;
+            margin: 0;
+            line-height: 1;
+            word-break: break-all;
+            font-family: 'Futura', 'Helvetica', Arial, sans-serif;
+            user-select: none;
+        }
+        @media (max-width: 900px) {
+            .main-content { min-height: 400px; }
+            .center-content { left: 5vw; top: 5vw; }
+            .big-title { left: 5vw; bottom: 5vw; font-size: 13vw; }
+        }
+        
+        /* 移动端导航栏适配 */
+        @media (max-width: 768px) {
+            .nav-row {
+                flex-direction: column;
+                gap: 1em;
+                padding: 15px 20px;
+                align-items: center; /* 居中对齐 */
+                text-align: center; /* 文本居中 */
+            }
+            
+            .nav-col {
+                min-width: auto;
+                width: auto; /* 改为auto，让内容自适应宽度 */
+                gap: 0.3em;
+                align-items: center; /* 列内容居中 */
+                text-align: center; /* 文本居中 */
+            }
+            
+            .nav-logo {
+                margin-bottom: 0.5em;
+                font-size: 1.2em;
+            }
+            
+            .main-content {
+                height: calc(100vh - 120px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-row {
+                padding: 12px 15px;
+                font-size: 0.85em;
+                align-items: center; /* 确保居中 */
+            }
+            
+            .nav-col {
+                gap: 0.2em;
+                align-items: center; /* 列内容居中 */
+                text-align: center; /* 文本居中 */
+            }
+            
+            .nav-col span {
+                font-size: 0.9em;
+            }
+            
+            .nav-col a {
+                padding: 8px 0;
+                font-size: 1em;
+                min-height: 20px;
+                display: block;
+                text-align: center; /* 链接文本居中 */
+            }
+            
+            .main-content {
+                height: calc(100vh - 140px);
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
         <nav class="main-nav">
             <ul class="nav-ul">
                 <li><a href="../index.html">HOME</a></li>
-                <li><a href="design.html">DESIGN</a></li>
-                <li><a href="movie.html">MOVIE</a></li>
-                <li><a href="cp.html">CP</a></li>
-                <li><a href="info.html">INFO</a></li>
+                <li><a href="../pages/design.html">DESIGN</a></li>
+                <li><a href="../pages/movie.html">MOVIE</a></li>
+                <li><a href="../pages/cp.html">CP</a></li>
+                <li><a href="../pages/info.html">INFO</a></li>
             </ul>
         </nav>
     </header>
-    <div><p>nothing here</p></div>
-    <footer><p>© 2025 KitaCompressed. All rights reserved.</p></footer>
+    <div class="main-content">
+        <div class="center-content">
+            <div class="subtitle">[ 0 ➔ 1 ]</div>
+            <div class="desc">CREATIVE STUDIO,<br>NEW YORK CITY</div>
+        </div>
+        <div class="big-title">KitaCompressed</div>
+    </div>
+    
+    <!-- 结尾部分 -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2 class="footer-title">KitaCompressed</h2>
+            </div>
+            <div class="footer-right">
+                <div class="footer-info">
+                    <span class="footer-counter">[ 0 > 1 ]</span>
+                    <div class="footer-studio">
+                        <span class="studio-name">DESIGNER, XCPCER, COMPUTER SCIENCE FAN,</span>
+                        <span class="studio-location">KIRYUUU_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../scripts/general_element.js"></script>
 </body>
-
 </html>
