@@ -1,3 +1,28 @@
+@font-face {
+    font-family: 'Futura';
+    src: url(../fonts/Futura-Light.ttf) format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Futura';
+    src: url(../fonts/Futura-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Futura';
+    src: url(../fonts/FuturaBT-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Futura';
+    src: url(../fonts/Futura-Heavy.ttf) format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
 footer {
     position: absolute;
     bottom: 0;
@@ -22,10 +47,11 @@ footer {
     /* z-index: 1000; */
 }
 .main-nav {
-    top: 0;
-    left: 0;
+    font-family: 'Futura';
+    font-weight: 500;
     width: 100%;
-    /* height: 50px; */
+    display: flex;
+    justify-content: center;
 }
 
 .nav-ul {
@@ -47,3 +73,4 @@ footer {
     color: #000;
     background-color:aliceblue;
 }
+
