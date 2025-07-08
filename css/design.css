@@ -367,6 +367,86 @@ html {
     }
 }
 
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .page-content {
+        padding: 1.5rem 1rem 4rem 1rem; /* 恢复合理的底部padding */
+    }
+    
+    .content-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem; /* 恢复合理的底部margin */
+    }
+    
+    .work-item {
+        padding: 1.2rem;
+    }
+    
+    .work-image {
+        height: 200px;
+    }
+    
+    .work-title {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .work-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-content {
+        padding: 1rem 0.8rem 5rem 0.8rem; /* 恢复合理的底部padding */
+    }
+    
+    .content-title {
+        font-size: 1.8rem;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .works-grid {
+        gap: 1.2rem;
+        margin-bottom: 2.5rem; /* 恢复合理的底部margin */
+    }
+    
+    .work-item {
+        padding: 1rem;
+    }
+    
+    .work-image {
+        height: 180px;
+    }
+    
+    .work-title {
+        font-size: 1.2rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .work-description {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+}
+
 /* 响应式设计 */
 @media screen and (max-width: 768px) {
     .page-content {

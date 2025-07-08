@@ -415,6 +415,96 @@ html {
     }
 }
 
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .page-content {
+        padding: 1.5rem 1rem 4rem 1rem; /* 恢复合理的底部padding */
+    }
+    
+    .content-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .movies-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem; /* 恢复合理的底部margin */
+    }
+    
+    .movie-item {
+        padding: 1.2rem;
+    }
+    
+    .movie-poster {
+        height: 200px;
+    }
+    
+    .movie-title {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .movie-description {
+        font-size: 0.9rem;
+    }
+    
+    .movie-meta {
+        font-size: 0.8rem;
+        margin-top: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-content {
+        padding: 1rem 0.8rem 5rem 0.8rem; /* 恢复合理的底部padding */
+    }
+    
+    .content-title {
+        font-size: 1.8rem;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .movies-grid {
+        gap: 1.2rem;
+        margin-bottom: 2.5rem; /* 恢复合理的底部margin */
+    }
+    
+    .movie-item {
+        padding: 1rem;
+    }
+    
+    .movie-poster {
+        height: 180px;
+    }
+    
+    .movie-title {
+        font-size: 1.2rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .movie-description {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    .movie-meta {
+        font-size: 0.75rem;
+        margin-top: 0.6rem;
+    }
+}
+
 /* 导航栏滚动跟随效果 */
 .main-header.sticky-active {
     background: rgba(15, 15, 15, 0.3) !important;

@@ -212,16 +212,15 @@ body.info-page html {
 
 @media (max-width: 768px) {
     .page-content {
-        padding: 2rem 0;
+        padding: 1.5rem 1rem 3rem 1rem; /* 恢复合理的底部padding */
+        min-height: 60vh;
     }
     
     .info-container {
-        height: 60vh;
+        width: 95%;
+        height: 55vh;
         min-height: 400px;
-    }
-    
-    .signature-text {
-        font-size: 2.5rem;
+        margin-bottom: 1rem; /* 恢复合理的底部margin */
     }
     
     .info {
@@ -235,23 +234,12 @@ body.info-page html {
     }
     
     .align-left {
-        bottom: 140px;
+        bottom: 120px;
         left: 10px;
     }
     
-    .tools-icons {
-        max-width: 400px;
-        gap: 0.6rem;
-        bottom: 80px;
-    }
-    
-    .icon-item {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-    }
-    
     .social-links {
-        bottom: 10px;
+        bottom: 15px;
         gap: 1rem;
     }
     
@@ -262,28 +250,40 @@ body.info-page html {
 }
 
 @media (max-width: 480px) {
-    .info-container {
-        height: 55vh;
-        min-height: 350px;
+    .page-content {
+        padding: 1rem 0.8rem 4rem 0.8rem; /* 恢复合理的底部padding */
+        min-height: 55vh;
     }
     
-    .signature-text {
-        font-size: 2rem;
-        letter-spacing: 0.05em;
+    .info-container {
+        width: 98%;
+        height: 50vh;
+        min-height: 350px;
+        margin-bottom: 1.5rem; /* 恢复合理的底部margin */
     }
     
     .info {
         font-size: 0.8rem;
+        line-height: 1.4;
     }
     
-    .tools-icons {
-        max-width: 300px;
-        gap: 0.4rem;
-        bottom: 90px;
+    .align-right {
+        top: 10px;
+        right: 5px;
     }
     
-    .icon-item {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.6rem;
+    .align-left {
+        bottom: 100px;
+        left: 5px;
+    }
+    
+    .social-links {
+        bottom: 10px;
+        gap: 0.8rem;
+    }
+    
+    .social-icon {
+        width: 18px;
+        height: 18px;
     }
 }

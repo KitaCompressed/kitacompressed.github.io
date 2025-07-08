@@ -5,7 +5,6 @@
         box-sizing: border-box !important;
     }
     
-    /* 强制重置导航栏定位 - 最高优先级 */
     html body .main-header,
     html body.index-page .main-header,
     html body:not(.index-page) .main-header,
@@ -31,7 +30,6 @@
     }
 }
 
-/* 移动端通用样式（提取自main.css并修正居中） */
 
 @media (max-width: 768px) {
     /* 重置任何可能干扰的通用类 */
@@ -44,8 +42,8 @@
     
     /* Footer */
     .site-footer {
-        padding: 1rem 3% 1rem 3%;
-        bottom: 2vh;
+        padding: 1rem 3% 2rem 3%;
+        bottom: -2vh; /* 下移footer位置 */
     }
     .footer-content {
         flex-direction: column;
