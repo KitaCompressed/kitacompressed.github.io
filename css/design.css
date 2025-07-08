@@ -244,7 +244,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #0a0a0a;
+    background-color: #000000;
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -264,7 +264,6 @@ html {
     height: 80px;
     opacity: 0;
     animation: fadeInEffect 0.5s forwards ease-in-out;
-    filter: invert(1);
 }
 
 /* 加载动画 */

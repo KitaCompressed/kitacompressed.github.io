@@ -45,16 +45,28 @@ if(cfRank && cfRating && cfUserName) {
         if(data.status === 'OK') {
             const user = data.result[0];
             const rank = user.rank ? user.rank : 'Unranked';
-            const rating = user.rating ? user.rating : 'Unrated';
+            const rating = user.rating ? user.rating : 0;
 
             cfRank.textContent = rank;
             cfUserName.textContent = handle;
-            cfRating.textContent = `Contest Rating: ${rating}`;
+            
+            // 检查rating是否为有效数字
+            if (rating && !isNaN(rating) && rating > 0) {
+                cfRating.textContent = rating;
+            } else {
+                cfRating.textContent = 'Unrated';
+            }
 
             cfRank.style.color = getColorForRating(rating);
             cfRating.style.color = getColorForRating(rating);
             cfUserName.style.color = getColorForRating(rating);
         }
+    })
+    .catch(error => {
+        console.error('Error fetching CF user data:', error);
+        cfRank.textContent = 'Error';
+        cfRating.textContent = 'Error';
+        cfUserName.textContent = handle;
     });
 
     // get contest list
@@ -90,11 +102,33 @@ if(cfRank && cfRating && cfUserName) {
             const solvedSet = new Set();
             submissions.forEach(sub => {
                 if (sub.verdict === 'OK') {
-
                     solvedSet.add(`${sub.problem.contestId}-${sub.problem.index}`);
                 }
             });
-            cfSolvedCount.textContent = `已通过题数：${solvedSet.size}`;
+            
+            // 创建统计显示
+            const solvedCount = solvedSet.size;
+            cfSolvedCount.innerHTML = `
+                <div class="stat-item">
+                    <span class="stat-label">Problems Solved</span>
+                    <span class="stat-value">${solvedCount}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Submissions</span>
+                    <span class="stat-value">${submissions.length}</span>
+                </div>
+            `;
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching CF submissions:', error);
+        if (cfSolvedCount) {
+            cfSolvedCount.innerHTML = `
+                <div class="stat-item">
+                    <span class="stat-label">Problems Solved</span>
+                    <span class="stat-value">Error</span>
+                </div>
+            `;
         }
     });
 
@@ -173,10 +207,22 @@ if(cfRank && cfRating && cfUserName) {
 
             if (cfSolvedCount) {
                 cfSolvedCount.innerHTML = `
-                    <b>${allSolvedSet.size}</b> problems solved for all time<br>
-                    <b>${yearSolvedSet.size}</b> problems solved for the last year<br>
-                    <b>${monthSolvedSet.size}</b> problems solved for the last month<br>
-                    <b>${weekSolvedSet.size}</b> problems solved for the last week
+                    <div class="stat-item">
+                        <span class="stat-value">${allSolvedSet.size}</span>
+                        <span class="stat-label">problems solved for all time</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${yearSolvedSet.size}</span>
+                        <span class="stat-label">problems solved for the last year</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${monthSolvedSet.size}</span>
+                        <span class="stat-label">problems solved for the last month</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${weekSolvedSet.size}</span>
+                        <span class="stat-label">problems solved for the last week</span>
+                    </div>
                 `;
             }
         }
