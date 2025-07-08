@@ -4,23 +4,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/idx_page2.css">
+    <link rel="stylesheet" href="../css/design.css">
     <link rel="stylesheet" href="../css/mobile.css">
-    <title>KitaCompressed</title>
+    <title>Design Works - KitaCompressed</title>
 </head>
 <body>
     <header class="main-header">
         <nav class="main-nav">
             <ul class="nav-ul">
                 <li><a href="../index.html">HOME</a></li>
-                <li><a href="design.html">DESIGN</a></li>
-                <li><a href="movie.html">MOVIE</a></li>
-                <li><a href="cp.html">CP</a></li>
-                <li><a href="info.html">INFO</a></li>
+                <li><a href="../pages/design.html">DESIGN</a></li>
+                <li><a href="../pages/movie.html">MOVIE</a></li>
+                <li><a href="../pages/cp.html">CP</a></li>
+                <li><a href="../pages/info.html">INFO</a></li>
             </ul>
         </nav>
     </header>
-    <!-- 结尾部分 -->
+
+    <div class="page-content" id="main-content">
+        <h1 class="content-title load-ani">Design Works</h1>
+        <p class="description load-ani">Visual Design / UI/UX / Graphic Design works created with various tools and techniques.</p>
+        
+        <!-- 作品全宽展示 -->
+        <div class="design-full-list load-ani">
+            <div class="full-width-item">
+                <div class="hover-container">
+                    <a href="https://www.bilibili.com/video/BV1tExdebEZn" target="_blank" class="work-link">
+                        <img loading="lazy" class="full-img c1" src="../images/AlwaysRecall.jpg" alt="AlwaysRecall Design"/>
+                        <div class="black-overlay"></div>
+                        <div class="text-overlay">
+                            <h3>AlwaysRecall</h3>
+                            <p>Visual Design</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="full-width-item">
+                <div class="hover-container">
+                    <a href="https://www.bilibili.com/video/BV1C8DUY5Ei8" target="_blank" class="work-link">
+                        <img loading="lazy" class="full-img c2" src="../images/Replica.jpg" alt="Replica Design"/>
+                        <div class="black-overlay"></div>
+                        <div class="text-overlay">
+                            <h3>Replica</h3>
+                            <p>Experimental Design</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="full-width-item">
+                <div class="hover-container">
+                    <a href="https://www.bilibili.com/video/BV1Eo4y1x722" target="_blank" class="work-link">
+                        <img loading="lazy" class="full-img c3" src="../images/Sugar Hive.png" alt="Sugar Hive Design"/>
+                        <div class="black-overlay"></div>
+                        <div class="text-overlay">
+                            <h3>Sugar Hive</h3>
+                            <p>Graphic Design / Poster</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="full-width-item">
+                <div class="hover-container">
+                    <a href="https://www.bilibili.com/video/BV1nkZrYBEHC" target="_blank" class="work-link">
+                        <img loading="lazy" class="full-img c4" src="../images/identity boundary.png" alt="Identity Boundary"/>
+                        <div class="black-overlay"></div>
+                        <div class="text-overlay">
+                            <h3>Identity Boundary</h3>
+                            <p>Experimental Design</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 8vh;"></div> <!-- 防止与footer粘连的空白 -->
+
+    <!-- 预加载器 -->
+    <div id="preloader">
+        <img src="../images/Preload.gif" alt="Loading Animation" id="preloader-logo">
+    </div>
+
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-left">
@@ -38,9 +102,7 @@
         </div>
     </footer>
 
-    <!-- <footer><p>© 2025 KitaCompressed. All rights reserved.</p></footer> -->
     <script src="../scripts/general_element.js"></script>
-    <!-- <script src="scripts/idx_page2.js"></script> -->
+    <script src="../scripts/design.js"></script>
 </body>
-
 </html>

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/movie.css">
     <link rel="stylesheet" href="../css/mobile.css">
-    <title>KitaCompressed - Movie</title>
+    <title>Movie Works - KitaCompressed</title>
 </head>
 <body>
     <header class="main-header">
@@ -20,15 +21,61 @@
             </ul>
         </nav>
     </header>
-    
-    <div class="main-content" style="position: relative; width: 100vw; min-height: calc(100vh - 60px); padding: 4rem 2rem;">
-        <div class="center-content" style="text-align: center; color: #f8f6f2; font-family: 'Futura', Arial, sans-serif;">
-            <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 900;">Movie Works</h1>
-            <p style="font-size: 1.2rem; opacity: 0.8;">Coming Soon...</p>
+
+    <div class="page-content" id="main-content">
+        <h1 class="content-title load-ani">Movie Works</h1>
+        <p class="description load-ani">Video Production / Motion Graphics / Cinematography works created with professional tools.</p>
+        
+        <!-- 作品全宽展示 -->
+        <div class="movie-full-list load-ani">
+            <div class="full-width-item">
+                <div class="hover-container video-link" data-video="https://www.bilibili.com/video/BV1dMF6efEtD">
+                    <img loading="lazy" class="full-img c1" src="../images/Sn2KE.png" alt="Sn2ke"/>
+                    <div class="black-overlay"></div>
+                    <div class="text-overlay">
+                        <h3>Sn2ke</h3>
+                        <p>Motion Graphics / Music Video</p>
+                    </div>
+                </div>
+            </div>
+            <div class="full-width-item">
+                <div class="hover-container video-link" data-video="https://www.bilibili.com/video/BV17CfCYzE7z/?share_source=copy_web&vd_source=02c94b993793d3ddb42b5cc382e11ece">
+                    <img loading="lazy" class="full-img c2" src="../images/DeformedTutopia.png" alt="Deformed Tutopia"/>
+                    <div class="black-overlay"></div>
+                    <div class="text-overlay">
+                        <h3>Deformed Tutopia</h3>
+                        <p>Experimental Video / Visual Effects</p>
+                    </div>
+                </div>
+            </div>
+            <div class="full-width-item">
+                <div class="hover-container video-link" data-video="https://www.bilibili.com/video/BV1sh4y1Q7nG">
+                    <img loading="lazy" class="full-img c3" src="../images/Left Right.jpg" alt="Left Right"/>
+                    <div class="black-overlay"></div>
+                    <div class="text-overlay">
+                        <h3>Left Right</h3>
+                        <p>Cinematography / Music Video</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
-    <!-- 结尾部分 -->
+    <div style="height: 8vh;"></div> <!-- 防止与footer粘连的空白 -->
+
+    <!-- 全屏查看覆盖层 -->
+    <div class="fullscreen-view">
+        <span class="close">&times;</span>
+        <video class="fullscreen-video" controls>
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- 预加载器 -->
+    <div id="preloader">
+        <img src="../images/Preload.gif" alt="Loading Animation" id="preloader-logo">
+    </div>
+
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-left">
@@ -45,6 +92,8 @@
             </div>
         </div>
     </footer>
+
     <script src="../scripts/general_element.js"></script>
+    <script src="../scripts/movie.js"></script>
 </body>
 </html>

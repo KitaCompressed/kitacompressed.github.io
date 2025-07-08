@@ -10,9 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const title = document.querySelector('.hero-title');
     if (title) {
         title.classList.add('title-animate');
-        // 动画完成后移除no-scroll
+        // 动画完成后移除no-scroll和title-animate类
         setTimeout(() => {
             document.body.classList.remove('no-scroll');
+            title.classList.remove('title-animate'); // 移除进场动画类，允许滚动动画生效
         }, 1500); // 与CSS动画时长匹配 (1.2s + 0.3s缓冲)
     } else {
         // 没有 hero-title，直接允许滚动
@@ -45,6 +46,25 @@ function checkFooterVisibility() {
                 footer.classList.add('footer-visible');
             }
         }
+    }
+}
+
+// 动态调整页面高度，消除footer底下的多余空白
+function adjustPageHeight() {
+    const portfolioShowcase = document.querySelector('.portfolio-showcase');
+    const footer = document.querySelector('.site-footer');
+    
+    if (portfolioShowcase && footer) {
+        // 计算展板区域的实际底部位置
+        const showcaseRect = portfolioShowcase.getBoundingClientRect();
+        const showcaseBottom = showcaseRect.bottom + window.scrollY;
+        
+        // 获取footer的高度
+        const footerHeight = footer.offsetHeight;
+        
+        // 设置body的高度为展板底部 + footer高度，消除多余空白
+        const targetHeight = showcaseBottom + footerHeight;
+        document.body.style.minHeight = targetHeight + 'px';
     }
 }
 
@@ -84,13 +104,16 @@ function handleTitleScrollAnimation() {
 function handleScroll() {
     const header = document.querySelector('.main-header');
 
-    if (window.scrollY > 40) {
-        header.classList.add('sticky-active');
-    } else {
-        header.classList.remove('sticky-active');
+    // 导航栏跟随滚动效果 - 在所有页面都生效
+    if (header) {
+        if (window.scrollY > 40) {
+            header.classList.add('sticky-active');
+        } else {
+            header.classList.remove('sticky-active');
+        }
     }
 
-    // 执行标题滚动动画
+    // 执行标题滚动动画（仅首页）
     handleTitleScrollAnimation();
     
     // Footer动画效果
@@ -99,3 +122,16 @@ function handleScroll() {
 
 // 只添加一次滚动监听器
 window.addEventListener('scroll', handleScroll);
+
+// 在展板动画完成后调整页面高度
+window.addEventListener('load', function() {
+    // ...existing code...
+    
+    // 延迟调整页面高度，确保所有元素都已渲染
+    setTimeout(adjustPageHeight, 2000);
+});
+
+// 在窗口大小改变时重新调整
+window.addEventListener('resize', function() {
+    setTimeout(adjustPageHeight, 100);
+});

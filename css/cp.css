@@ -1,0 +1,408 @@
+/* CP页面专用样式 */
+
+/* 确保页面可以滚动 */
+html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+}
+
+/* 导航栏滚动跟随效果 */
+.main-header.sticky-active {
+    background: rgba(15, 15, 15, 0.3) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    box-shadow: 
+        0 8px 32px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.1) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    padding: 0.5rem 2.5rem !important;
+    border-radius: 2rem !important;
+}
+
+/* 页面内容布局 */
+.page-content {
+    padding: 3rem 2rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 85vh;
+}
+
+.content-title {
+    font-family: 'Futura', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.description {
+    font-family: 'Futura', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+/* CP统计容器 */
+.cp-stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* 统计卡片样式 */
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.stat-card:hover::before {
+    opacity: 1;
+}
+
+/* 卡片头部 */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.platform-logo {
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
+}
+
+.card-header h3 {
+    font-family: 'Futura', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* 卡片内容 */
+.stat-content {
+    margin-bottom: 1.5rem;
+}
+
+.rating-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rating-number {
+    font-family: 'Futura', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff6b6b;
+    text-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+}
+
+.rating-rank {
+    font-family: 'Futura', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.username-display {
+    font-family: 'Futura', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* GitHub热力图 */
+.github-heatmap {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Futura', sans-serif;
+}
+
+/* 解题统计 */
+.solved-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.solved-stats .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Futura', sans-serif;
+}
+
+.solved-stats .stat-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.solved-stats .stat-value {
+    color: #4ecdc4;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* 卡片底部 */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-link {
+    color: #45b7d1;
+    text-decoration: none;
+    font-family: 'Futura', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.profile-link:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+.update-time {
+    font-family: 'Futura', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* 技能标签区域 */
+.skills-section {
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Futura', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-tag {
+    font-family: 'Futura', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* 用户资料样式 */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.avatar-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.avatar-container:hover {
+    border-color: #ff6b6b;
+    transform: scale(1.05);
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 备用头像样式 */
+.avatar-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Futura', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 加载动画 */
+.load-ani {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.load-ani:nth-child(1) { animation-delay: 0.1s; }
+.load-ani:nth-child(2) { animation-delay: 0.3s; }
+.load-ani:nth-child(3) { animation-delay: 0.5s; }
+.load-ani:nth-child(4) { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 特殊卡片颜色主题 */
+.cf-card:hover::before {
+    background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+}
+
+.github-card:hover::before {
+    background: linear-gradient(90deg, #333, #666);
+}
+
+.problems-card:hover::before {
+    background: linear-gradient(90deg, #4ecdc4, #6ee6de);
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .cp-stats-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .content-title {
+        font-size: 2.2rem;
+    }
+    
+    .page-content {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cp-stats-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .content-title {
+        font-size: 2rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+    }
+    
+    .page-content {
+        padding: 2rem 1rem;
+    }
+    
+    .stat-card {
+        padding: 1.25rem;
+    }
+    
+    .rating-number {
+        font-size: 2rem;
+    }
+    
+    .skills-tags {
+        gap: 0.75rem;
+    }
+    
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-title {
+        font-size: 1.8rem;
+    }
+    
+    .page-content {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .card-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .rating-number {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}

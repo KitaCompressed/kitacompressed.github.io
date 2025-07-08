@@ -106,8 +106,16 @@ html {
     scrollbar-color: #404040 #1a1a1a;
 }
 
-body {
-    min-height: 200vh; /* 调整页面高度，为heyday风格提供合适的滚动空间 */
+/* 首页专用的固定高度设置 */
+body.index-page {
+    height: calc(100vh + 190vh); /* 减少页面高度，缩减footer前空白，从220vh改为190vh */
+    position: relative;
+}
+
+/* 其他页面使用自动高度 */
+body:not(.index-page) {
+    height: auto;
+    min-height: 100vh;
     position: relative;
 }
 
@@ -124,11 +132,15 @@ body {
     font-weight: 900;
     user-select: none;
     z-index: 10;
-    opacity: 1; /* 改为1，避免移除动画类后消失 */
-    transform: translateY(0); /* 改为0，保持最终位置 */
-    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-    /* 为滚动动画添加平滑过渡 */
-    will-change: transform, opacity;
+    opacity: 1;
+    /* 完全移除过渡动画，确保滚动动画即时响应 */
+    transition: none !important;
+    /* 防止布局变化 */
+    width: calc(100% - 16vw); /* 明确设置宽度 */
+    contain: layout style; /* 限制重绘影响范围 */
+    /* 强制硬件加速以提升性能 */
+    transform: translateZ(0);
+    will-change: opacity;
 }
 
 .hero-title.title-animate {
@@ -309,12 +321,12 @@ html {
 /* 网站结尾样式 */
 .site-footer {
     position: absolute;
-    bottom: 3vh;
+    bottom: 0;
     left: 0;
     right: 0;
-    padding: 1.5rem 5% 1rem 5%;
+    padding: 2rem 5% 1rem 5%; /* 增加上padding确保与展板间距 */
     z-index: 4;
-    min-height: 80px;
+    min-height: 50px;
     box-sizing: border-box;
     width: 100%;
     border-top: 1px solid rgba(248, 246, 242, 0.3);
@@ -345,7 +357,7 @@ body:not(.index-page) .site-footer {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    min-height: 60px; /* 确保内容区域有足够高度 */
+    min-height: 50px; /* 减少内容区域高度 */
     position: relative; /* 添加相对定位 */
 }
 

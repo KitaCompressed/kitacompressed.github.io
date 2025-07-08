@@ -69,7 +69,7 @@
     line-height: 1;
     text-align: left;
     left: 10%;
-    top: 35vh; /* 从25vh下调到35vh */
+    top: 45vh; /* 从35vh下调到45vh，增加10vh */
     opacity: 0;
     transform: translateX(-50px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -105,4 +105,445 @@
 .design-works-vertical.fade-in .works-word {
     transform: translateX(0);
     opacity: 1;
+}
+
+/* CP Awards 独立区域样式 */
+.cp-awards-section {
+    position: absolute;
+    top: 230vh; /* 上移20vh，从250vh改为230vh */
+    left: 0;
+    width: 100%;
+    height: 60vh; /* 减少高度，从90vh改为60vh，缩减与footer间距 */
+    z-index: 3;
+    transition: top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cp-awards-section.positioned {
+    top: 180vh; /* 相应上移，从200vh改为180vh */
+}
+
+/* CP Awards 竖排文字样式 - 与Design Works左对齐 */
+.cp-awards-vertical {
+    position: absolute;
+    font-family: 'Futura';
+    font-weight: 900;
+    font-size: 8vw;
+    color: #f8f6f2;
+    line-height: 1;
+    text-align: left;
+    left: 10%; /* 与Design Works竖排对齐 */
+    top: -35vh; /* 再上移30vh，从-5vh改为-35vh */
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cp-awards-vertical.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.cp-awards-vertical .cp-word {
+    display: block;
+    margin-bottom: 0.1em;
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-delay: 0.2s;
+}
+
+.cp-awards-vertical .awards-word {
+    display: block;
+    transform: translateX(-30px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-delay: 0.4s;
+}
+
+.cp-awards-vertical.fade-in .cp-word {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.cp-awards-vertical.fade-in .awards-word {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* 作品展示区域样式 */
+.portfolio-showcase {
+    position: absolute;
+    top: 170vh; /* 初始位置，当container slide-up后会动态调整 */
+    left: 0; /* 改为0，避免transform导致的布局问题 */
+    width: 100%;
+    min-height: 60vh; /* 减少高度，因为CP Awards现在是独立区域 */
+    background: transparent;
+    padding: 5vh 0 10vh 0; /* 减少底部padding */
+    z-index: 5; /* 提高z-index，但仍低于按钮 */
+    transition: top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-sizing: border-box; /* 确保padding不会超出容器 */
+}
+
+/* 当design-works-container上滑后，展示区域也相应调整 */
+.portfolio-showcase.positioned {
+    top: 120vh; /* 往上调整10vh，从130vh改为120vh */
+}
+
+.showcase-container {
+    max-width: none; /* 移除最大宽度限制 */
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 10%; /* 与Design Works竖排左对齐 */
+    padding-right: 10%; /* 右侧也保持对称 */
+    position: relative; /* 为绝对定位的按钮提供参考 */
+}
+
+.showcase-content {
+    display: flex;
+    align-items: center; /* 直接垂直居中对齐 */
+    gap: 3rem;
+    position: relative;
+    pointer-events: auto; /* 确保事件传播正常 */
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 固定为3列 */
+    gap: 2rem; /* 增加间距 */
+    margin-top: 2rem; /* 减少上边距，让页面更紧凑 */
+    flex: 1; /* 让展板占据剩余空间 */
+    max-width: 80%; /* 进一步增加展板最大宽度 */
+    box-sizing: border-box;
+}
+
+.showcase-item {
+    aspect-ratio: 16/10; /* 横向矩形比例 */
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    transform: translateY(40px);
+    /* 添加外阴影 */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.showcase-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.showcase-item:hover {
+    /* 悬浮时增强阴影 */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px); /* 悬浮时上移 */
+}
+
+/* 项目图片样式 */
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* 悬浮效果 */
+.showcase-link:hover .project-image {
+    transform: scale(1.05); /* 轻微放大 */
+    filter: brightness(0.9); /* 轻微变暗 */
+}
+
+/* 更新原有样式以适配图片 - 还原简单样式 */
+.showcase-placeholder {
+    width: 100%;
+    height: 100%;
+    position: relative; /* 确保内部绝对定位元素的参考 */
+    overflow: hidden; /* 隐藏溢出的内容 */
+    background: linear-gradient(135deg, 
+        rgba(248, 246, 242, 0.08) 0%, 
+        rgba(255, 107, 53, 0.12) 100%); /* 还原背景渐变 */
+    border: 1px solid rgba(248, 246, 242, 0.1); /* 还原简单边框 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    border-radius: 8px;
+    backdrop-filter: blur(10px); /* 还原模糊效果 */
+}
+
+/* 还原简单的悬浮效果 */
+.showcase-placeholder:hover {
+    background: linear-gradient(135deg, 
+        rgba(248, 246, 242, 0.15) 0%, 
+        rgba(255, 107, 53, 0.2) 100%);
+    border-color: rgba(255, 107, 53, 0.3);
+}
+
+/* 展板链接样式 */
+.showcase-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+/* 移除showcase-link的hover效果，因为showcase-item已经处理了 */
+
+/* 当作品项进入视口时，触发动画 */
+@keyframes showcaseItemEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* View More 按钮样式 */
+.view-more-button {
+    min-width: 180px;
+    height: 60px;
+    background: #ff6b35; /* 纯橙色背景 */
+    border: none;
+    border-radius: 30px; /* 圆角矩形 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 使用更好的缓动函数 */
+    text-decoration: none;
+    color: #ffffff; /* 白色文字 */
+    font-family: 'Futura';
+    font-weight: 600; /* 稍微加粗 */
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3); /* 添加阴影 */
+    flex-shrink: 0; /* 防止按钮缩小 */
+    margin-top: 2rem; /* 减少按钮向下偏移，让页面更紧凑 */
+    /* 入场动画初始状态 */
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    /* 确保按钮在最高层级 */
+    z-index: 10;
+    position: relative;
+    pointer-events: auto; /* 明确指定可以接收鼠标事件 */
+}
+
+/* 按钮入场动画触发 */
+.view-more-button.animate {
+    animation: buttonEnter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.view-more-button:hover {
+    background: #e55a2b !important; /* 悬停时稍微变深，提高优先级 */
+    transform: translateY(-4px) scale(1.05) !important; /* 悬浮时上移并稍微放大 */
+    box-shadow: 0 12px 35px rgba(255, 107, 53, 0.5) !important; /* 加强阴影 */
+    color: #ffffff !important;
+    z-index: 11 !important; /* 悬浮时提高层级 */
+}
+
+/* 按钮按下效果 */
+.view-more-button:active {
+    background: #d14a1f !important; /* 按下时更深的颜色 */
+    transform: translateY(-2px) scale(1.02) !important; /* 按下时稍微回弹 */
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4) !important;
+    transition: all 0.1s ease !important; /* 按下时快速响应 */
+    z-index: 11 !important; /* 按下时也保持高层级 */
+}
+
+/* 按钮入场动画 */
+@keyframes buttonEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* CP Awards 容器布局 */
+.cp-awards-container {
+    max-width: none;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 10%; /* 与Design Works竖排左对齐 */
+    padding-right: 10%;
+    position: relative;
+    height: 100%;
+}
+
+.cp-awards-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    pointer-events: auto;
+    margin-top: 30vh; /* 下移20vh，从10vh改为30vh */
+}
+
+.cp-awards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2列布局 */
+    gap: 1.5rem; /* 稍小的间距 */
+    flex: 1;
+    max-width: 60%; /* 比Design Works展板稍小 */
+    box-sizing: border-box;
+}
+
+.cp-award-item {
+    aspect-ratio: 16/9; /* 稍微窄一些的比例 */
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    transform: translateY(40px);
+    /* 添加外阴影，但比Design Works稍小 */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cp-award-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cp-award-item:hover {
+    /* 悬浮时增强阴影 */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    transform: translateY(-6px); /* 悬浮时上移 */
+}
+
+/* CP Awards 展板内容样式 */
+.cp-award-placeholder {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+        rgba(248, 246, 242, 0.06) 0%, 
+        rgba(255, 107, 53, 0.08) 100%); /* 更淡的背景 */
+    border: 1px solid rgba(248, 246, 242, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.cp-award-placeholder:hover {
+    background: linear-gradient(135deg, 
+        rgba(248, 246, 242, 0.12) 0%, 
+        rgba(255, 107, 53, 0.15) 100%);
+    border-color: rgba(255, 107, 53, 0.2);
+}
+
+/* CP Awards 文字信息样式 */
+.cp-award-info {
+    text-align: center;
+    color: #f8f6f2;
+}
+
+.award-title {
+    font-family: 'Futura';
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    color: #ff6b35; /* 橙色标题 */
+    line-height: 1.2;
+}
+
+.award-description {
+    font-family: 'Futura';
+    font-weight: 300;
+    font-size: 0.9rem;
+    margin: 0;
+    color: rgba(248, 246, 242, 0.8);
+    line-height: 1.4;
+}
+
+/* CP Awards View More 按钮样式 */
+.cp-view-more-button {
+    min-width: 160px; /* 比Design Works按钮稍小 */
+    height: 55px;
+    background: #ff6b35;
+    border: none;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Futura';
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+    flex-shrink: 0;
+    margin-top: 1.5rem;
+    /* 入场动画初始状态 */
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    z-index: 10;
+    position: relative;
+    pointer-events: auto;
+}
+
+/* CP按钮入场动画触发 */
+.cp-view-more-button.animate {
+    animation: cpButtonEnter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.cp-view-more-button:hover {
+    background: #e55a2b !important;
+    transform: translateY(-3px) scale(1.03) !important;
+    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4) !important;
+    color: #ffffff !important;
+    z-index: 11 !important;
+}
+
+.cp-view-more-button:active {
+    background: #d14a1f !important;
+    transform: translateY(-1px) scale(1.01) !important;
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3) !important;
+    transition: all 0.1s ease !important;
+    z-index: 11 !important;
+}
+
+/* CP按钮入场动画 */
+@keyframes cpButtonEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-3px) scale(1.01);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
